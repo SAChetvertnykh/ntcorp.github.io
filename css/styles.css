@@ -143,8 +143,6 @@ button {
 .product-container,
 .why-us-container,
 .partners-container,
-.cases-container,
-.news-container,
 .contacts-container,
 .footer-container {
   width: 100%;
@@ -545,7 +543,7 @@ section {
   color: rgba(255, 255, 255, 0.72);
   max-width: 68ch;
   font-size: 1.02rem;
-  margin-bottom: 44px;
+  margin: 0 auto 44px;
 }
 
 .product-container {
@@ -558,6 +556,12 @@ section {
 .product-container > .section-title,
 .product-container > .product-description {
   grid-column: 1 / -1;
+  text-align: center;
+}
+
+.product .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .features-title {
@@ -616,7 +620,7 @@ section {
 
 .advantages-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 22px;
 }
 
@@ -636,14 +640,6 @@ section {
 .advantage-title {
   font-size: 1.15rem;
   margin-bottom: 10px;
-}
-
-.stat-number {
-  font-family: var(--font-mono);
-  color: var(--color-accent-ink);
-  background: rgba(255, 106, 19, 0.2);
-  padding: 1px 6px;
-  border-radius: 4px;
 }
 
 .advantage-description {
@@ -701,105 +697,6 @@ section {
 }
 
 /* =========================================================
-   Кейсы
-   ========================================================= */
-
-.cases-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.case-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
-}
-
-.case-card:hover {
-  box-shadow: var(--shadow-card);
-  transform: translateY(-6px);
-}
-
-.case-image img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 0;
-}
-
-.case-card .case-title,
-.case-card .case-description,
-.case-card .btn {
-  margin-left: 22px;
-  margin-right: 22px;
-}
-
-.case-title {
-  font-size: 1.05rem;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.case-description {
-  color: var(--color-muted);
-  font-size: 0.92rem;
-  margin-bottom: 20px;
-  flex: 1;
-}
-
-.case-card .btn {
-  margin-bottom: 22px;
-  align-self: flex-start;
-}
-
-/* =========================================================
-   Новости
-   ========================================================= */
-
-.news {
-  background: var(--color-surface);
-}
-
-.news-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.news-card {
-  border-bottom: 1px solid var(--color-line);
-  padding-bottom: 8px;
-}
-
-.news-image img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  margin-bottom: 18px;
-}
-
-.news-date {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--color-teal);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.news-title {
-  font-size: 1.02rem;
-  margin: 10px 0;
-}
-
-.news-excerpt {
-  color: var(--color-muted);
-  font-size: 0.92rem;
-}
-
-/* =========================================================
    Контакты
    ========================================================= */
 
@@ -827,18 +724,6 @@ section {
 
 .company-address a:hover {
   color: var(--color-teal);
-}
-
-.contacts-map {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--color-line);
-}
-
-.contacts-map img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 0;
 }
 
 .contact-form {
@@ -1005,11 +890,6 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .cases-list,
-  .news-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .partners-logos {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1081,8 +961,6 @@ section {
 
   .services-list,
   .advantages-list,
-  .cases-list,
-  .news-list,
   .partners-logos {
     grid-template-columns: 1fr;
   }
