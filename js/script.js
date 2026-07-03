@@ -1,289 +1,267 @@
-/* =========================================================
-   NAVITECH CORP — интерактивность сайта
-   1. Переключение темы (светлая / тёмная)
-   2. Мобильное меню
-   3. Состояние шапки при скролле + подсветка активного пункта
-   4. Плавное появление блоков при скролле
-   5. Canvas-анимация «сети связей» в hero
-   6. Валидация формы обратной связи
-   ========================================================= */
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIMITED LIABILITY COMPANY "NAVITECH CORP" — Разработка ПО и CRM-систем для бизнеса</title>
+    <meta name="description" content="LIMITED LIABILITY COMPANY &quot;NAVITECH CORP&quot; — IT-компания, разработчик собственной CRM-системы, веб-приложений и решений для автоматизации бизнеса.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
 
-document.addEventListener('DOMContentLoaded', function () {
+    <!-- Header: логотип, главное меню, кнопка связи -->
+    <header id="site-header" class="site-header">
+        <div class="header-container">
+            <div class="logo" id="logo">
+                <img src="" alt="Логотип компании LIMITED LIABILITY COMPANY &quot;NAVITECH CORP&quot;">
+                <span class="logo-text">NAVITECH CORP</span>
+            </div>
+            <nav id="main-nav" class="main-nav" aria-label="Главное меню">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#about" class="nav-link">О компании</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Услуги</a></li>
+                    <li class="nav-item"><a href="#product" class="nav-link">Продукт</a></li>
+                    <li class="nav-item"><a href="#why-us" class="nav-link">Почему мы</a></li>
+                    <li class="nav-item"><a href="#partners" class="nav-link">Партнеры</a></li>
+                    <li class="nav-item"><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="Переключить на светлую тему">
+                    <span class="theme-toggle-track">
+                        <svg class="theme-toggle-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4.2"></circle>
+                            <path d="M12 2.8v2.6M12 18.6v2.6M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2.8 12h2.6M18.6 12h2.6M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"></path>
+                        </svg>
+                        <svg class="theme-toggle-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.4 6.4 0 0 0 10.2 10.2Z"></path>
+                        </svg>
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                </button>
+                <button type="button" class="btn btn-contact" id="header-contact-btn">Связаться</button>
+                <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
 
-  /* ---------- 1. Переключение темы ---------- */
-  var themeToggle = document.getElementById('theme-toggle');
-  var rootEl = document.documentElement;
+    <!-- Hero: главный заголовок и описание компании -->
+    <section id="hero" class="hero">
+        <canvas id="hero-network" class="hero-network" aria-hidden="true"></canvas>
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="eyebrow">Разработка ПО для бизнеса</p>
+                <h1 class="hero-title">Разрабатываем программное обеспечение, которое двигает ваш бизнес вперед</h1>
+                <p class="hero-description">LIMITED LIABILITY COMPANY "NAVITECH CORP" — команда инженеров и аналитиков, создающая надежные IT-решения для компаний любого масштаба. Наша флагманская разработка — собственная CRM-система, но мы также занимаемся веб-разработкой, автоматизацией процессов и технической поддержкой бизнеса.</p>
+            </div>
+            <div class="hero-image">
+                <img src="" alt="Иллюстрация работы IT-команды над разработкой программного обеспечения">
+            </div>
+        </div>
+    </section>
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      var isLight = rootEl.getAttribute('data-theme') === 'light';
-      var nextTheme = isLight ? 'dark' : 'light';
-      rootEl.setAttribute('data-theme', nextTheme);
-      themeToggle.setAttribute('aria-pressed', String(!isLight));
-      themeToggle.setAttribute(
-        'aria-label',
-        nextTheme === 'light' ? 'Переключить на тёмную тему' : 'Переключить на светлую тему'
-      );
-    });
-  }
+    <!-- О компании -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <h2 class="section-title">О компании</h2>
+            <div class="about-text">
+                <p class="about-paragraph">LIMITED LIABILITY COMPANY "NAVITECH CORP" работает на рынке разработки программного обеспечения уже более 4 лет.</p>
+                <p class="about-paragraph">Наша миссия — помогать бизнесу эффективно управлять внутренними процессами с помощью современных технологий. Мы верим, что качественное программное обеспечение должно быть не только функциональным, но и удобным для конечного пользователя.</p>
+            </div>
+        </div>
+    </section>
 
-  /* ---------- 2. Мобильное меню ---------- */
-  var navToggle = document.getElementById('nav-toggle');
-  var mainNav = document.getElementById('main-nav');
+    <!-- Наши услуги -->
+    <section id="services" class="services">
+        <div class="services-container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-list">
+                <article class="service-card" id="service-crm">
+                    <div class="service-icon">
+                        <img src="" alt="Иконка разработки CRM-систем">
+                    </div>
+                    <h3 class="service-title">Разработка CRM</h3>
+                    <p class="service-description">Создаем индивидуальные CRM-решения для управления клиентами, продажами и внутренними бизнес-процессами компании.</p>
+                </article>
+                <article class="service-card" id="service-web">
+                    <div class="service-icon">
+                        <img src="" alt="Иконка веб-разработки">
+                    </div>
+                    <h3 class="service-title">Веб-разработка</h3>
+                    <p class="service-description">Разрабатываем сайты, веб-приложения и порталы любой сложности с современным дизайном и надежной архитектурой.</p>
+                </article>
+                <article class="service-card" id="service-automation">
+                    <div class="service-icon">
+                        <img src="" alt="Иконка автоматизации бизнес-процессов">
+                    </div>
+                    <h3 class="service-title">Автоматизация бизнеса</h3>
+                    <p class="service-description">Внедряем инструменты автоматизации, которые сокращают ручной труд и повышают эффективность работы компании.</p>
+                </article>
+                <article class="service-card" id="service-support">
+                    <div class="service-icon">
+                        <img src="" alt="Иконка технической поддержки">
+                    </div>
+                    <h3 class="service-title">Техническая поддержка</h3>
+                    <p class="service-description">Обеспечиваем стабильную работу ваших систем 24/7 благодаря профессиональной технической поддержке.</p>
+                </article>
+            </div>
+        </div>
+    </section>
 
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', function () {
-      var isOpen = mainNav.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      navToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-    });
+    <!-- Наш продукт: презентация CRM -->
+    <section id="product" class="product">
+        <div class="product-container">
+            <h2 class="section-title">Наш продукт — UBP</h2>
+            <p class="product-description">UBP — это собственная разработка компании LIMITED LIABILITY COMPANY "NAVITECH CORP", созданная специально для эффективного управления клиентами, продажами и коммуникациями внутри бизнеса. Система легко адаптируется под задачи компаний любого размера.</p>
+            <div class="product-features">
+                <h3 class="features-title">Основные возможности</h3>
+                <ul class="features-list">
+                    <li class="feature-item">Управление клиентской базой и историей взаимодействий</li>
+                    <li class="feature-item">Автоматизация воронки продаж</li>
+                    <li class="feature-item">Аналитика и отчеты в реальном времени</li>
+                    <li class="feature-item">Интеграция с почтой, телефонией и мессенджерами</li>
+                    <li class="feature-item">Гибкая настройка ролей и прав доступа</li>
+                    <li class="feature-item">Мобильное приложение для работы вне офиса</li>
+                </ul>
+            </div>
+            <div class="product-image">
+                <img src="" alt="Скриншот интерфейса CRM-системы UBP">
+            </div>
+            <button type="button" class="btn btn-primary" id="product-more-btn">Подробнее</button>
+        </div>
+    </section>
 
-    mainNav.querySelectorAll('.nav-link').forEach(function (link) {
-      link.addEventListener('click', function () {
-        mainNav.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Открыть меню');
-      });
-    });
-  }
+    <!-- Почему выбирают нас -->
+    <section id="why-us" class="why-us">
+        <div class="why-us-container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="advantages-list">
+                <article class="advantage-card" id="advantage-support">
+                    <h3 class="advantage-title">Поддержка 24/7</h3>
+                    <p class="advantage-description">Оперативно реагируем на обращения клиентов в любое время суток.</p>
+                </article>
+                <article class="advantage-card" id="advantage-individual">
+                    <h3 class="advantage-title">Индивидуальный подход</h3>
+                    <p class="advantage-description">Разрабатываем решения с учетом специфики каждого бизнеса.</p>
+                </article>
+                <article class="advantage-card" id="advantage-technology">
+                    <h3 class="advantage-title">Современные технологии</h3>
+                    <p class="advantage-description">Используем актуальные инструменты и подходы к разработке.</p>
+                </article>
+                <article class="advantage-card" id="advantage-reliability">
+                    <h3 class="advantage-title">Надежность</h3>
+                    <p class="advantage-description">Гарантируем стабильную работу и безопасность всех наших решений.</p>
+                </article>
+            </div>
+        </div>
+    </section>
 
-  /* ---------- 3. Состояние шапки при скролле + активный пункт меню ---------- */
-  var header = document.getElementById('site-header');
-  var sections = document.querySelectorAll('section[id]');
-  var navLinks = document.querySelectorAll('.nav-link');
+    <!-- Партнеры -->
+    <section id="partners" class="partners">
+        <div class="partners-container">
+            <h2 class="section-title">Наши партнеры</h2>
+            <p class="partners-description">Мы сотрудничаем с ведущими компаниями и технологическими платформами, что позволяет нам предлагать клиентам самые современные и надежные решения.</p>
+            <div class="partners-logos">
+                <div class="partner-logo">
+                    <img src="" alt="Логотип партнера компании номер один">
+                </div>
+                <div class="partner-logo">
+                    <img src="" alt="Логотип партнера компании номер два">
+                </div>
+                <div class="partner-logo">
+                    <img src="" alt="Логотип партнера компании номер три">
+                </div>
+                <div class="partner-logo">
+                    <img src="" alt="Логотип партнера компании номер четыре">
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary" id="partner-become-btn">Стать партнером</button>
+        </div>
+    </section>
+    <!-- Контакты -->
+    <section id="contacts" class="contacts">
+        <div class="contacts-container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts-info">
+                <address class="company-address">
+                <p class="footer-address">Пермский край г. Пермь ул. Екатерининская, д. 133, кв. 29</p>
+                <p class="footer-phone">Телефон: <a href="tel:+74951234567">+7 (912) 882-41-32</a></p>
+                <p class="footer-email">Email: <a href="mailto:support@ntkorp.ru">support@ntkorp.ru</a></p>
+                </address>
+            </div>
+            <form class="contact-form" id="contact-form" action="#" method="post">
+                <h3 class="form-title">Обратная связь</h3>
+                <div class="form-group">
+                    <label for="contact-name" class="form-label">Ваше имя</label>
+                    <input type="text" id="contact-name" name="contact-name" class="form-input" placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email" class="form-label">Email</label>
+                    <input type="email" id="contact-email" name="contact-email" class="form-input" placeholder="Введите ваш email">
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone" class="form-label">Телефон</label>
+                    <input type="tel" id="contact-phone" name="contact-phone" class="form-input" placeholder="Введите ваш телефон">
+                </div>
+                <div class="form-group">
+                    <label for="contact-message" class="form-label">Сообщение</label>
+                    <textarea id="contact-message" name="contact-message" class="form-textarea" placeholder="Введите ваше сообщение"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="contact-submit-btn">Отправить</button>
+            </form>
+        </div>
+    </section>
 
-  function onScroll() {
-    if (header) {
-      header.classList.toggle('is-scrolled', window.scrollY > 12);
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  if ('IntersectionObserver' in window && sections.length && navLinks.length) {
-    var navObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var id = entry.target.getAttribute('id');
-          navLinks.forEach(function (link) {
-            link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
-          });
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-
-    sections.forEach(function (section) {
-      navObserver.observe(section);
-    });
-  }
-
-  /* ---------- 4. Плавное появление блоков при скролле ---------- */
-  var revealTargets = document.querySelectorAll(
-    '.service-card, .advantage-card, .partner-logo, .about-text, .product-image, .contact-form'
-  );
-
-  revealTargets.forEach(function (el) {
-    el.classList.add('reveal');
-  });
-
-  if ('IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry, index) {
-        if (entry.isIntersecting) {
-          var target = entry.target;
-          var delay = Array.prototype.indexOf.call(target.parentNode.children, target) % 4;
-          target.style.transitionDelay = (delay * 0.08) + 's';
-          target.classList.add('is-visible');
-          observer.unobserve(target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    revealTargets.forEach(function (el) {
-      revealObserver.observe(el);
-    });
-  } else {
-    revealTargets.forEach(function (el) {
-      el.classList.add('is-visible');
-    });
-  }
-
-  /* ---------- 5. Canvas-анимация «сети связей» в hero ---------- */
-  var canvas = document.getElementById('hero-network');
-
-  if (canvas && canvas.getContext) {
-    var ctx = canvas.getContext('2d');
-    var heroSection = document.getElementById('hero');
-    var nodes = [];
-    var pointer = { x: null, y: null };
-    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function resizeCanvas() {
-      var rect = heroSection.getBoundingClientRect();
-      canvas.width = rect.width * window.devicePixelRatio;
-      canvas.height = rect.height * window.devicePixelRatio;
-      canvas.style.width = rect.width + 'px';
-      canvas.style.height = rect.height + 'px';
-      ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
-      createNodes(rect.width, rect.height);
-    }
-
-    function createNodes(width, height) {
-      var count = Math.max(18, Math.floor((width * height) / 42000));
-      nodes = [];
-      for (var i = 0; i < count; i++) {
-        nodes.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.25,
-          vy: (Math.random() - 0.5) * 0.25,
-          r: 1.6 + Math.random() * 1.6
-        });
-      }
-    }
-
-    function draw() {
-      var width = canvas.width / window.devicePixelRatio;
-      var height = canvas.height / window.devicePixelRatio;
-      ctx.clearRect(0, 0, width, height);
-
-      for (var i = 0; i < nodes.length; i++) {
-        var n = nodes[i];
-        n.x += n.vx;
-        n.y += n.vy;
-
-        if (n.x < 0 || n.x > width) n.vx *= -1;
-        if (n.y < 0 || n.y > height) n.vy *= -1;
-
-        if (pointer.x !== null) {
-          var dx = n.x - pointer.x;
-          var dy = n.y - pointer.y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            n.x += dx / dist * 0.6;
-            n.y += dy / dist * 0.6;
-          }
-        }
-      }
-
-      for (var a = 0; a < nodes.length; a++) {
-        for (var b = a + 1; b < nodes.length; b++) {
-          var na = nodes[a];
-          var nb = nodes[b];
-          var ddx = na.x - nb.x;
-          var ddy = na.y - nb.y;
-          var d = Math.sqrt(ddx * ddx + ddy * ddy);
-          if (d < 140) {
-            ctx.strokeStyle = 'rgba(255, 106, 19,' + (0.22 * (1 - d / 140)) + ')';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(na.x, na.y);
-            ctx.lineTo(nb.x, nb.y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      for (var j = 0; j < nodes.length; j++) {
-        var node = nodes[j];
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
-        ctx.fillStyle = j % 3 === 0 ? 'rgba(255, 174, 66, 0.75)' : 'rgba(255, 106, 19, 0.55)';
-        ctx.fill();
-      }
-
-      if (!reducedMotion) {
-        window.requestAnimationFrame(draw);
-      }
-    }
-
-    resizeCanvas();
-    draw();
-
-    window.addEventListener('resize', resizeCanvas);
-    heroSection.addEventListener('mousemove', function (e) {
-      var rect = heroSection.getBoundingClientRect();
-      pointer.x = e.clientX - rect.left;
-      pointer.y = e.clientY - rect.top;
-    });
-    heroSection.addEventListener('mouseleave', function () {
-      pointer.x = null;
-      pointer.y = null;
-    });
-
-    if (reducedMotion) {
-      draw();
-    }
-  }
-
-  /* ---------- 6. Валидация формы обратной связи ---------- */
-  var contactForm = document.getElementById('contact-form');
-
-  if (contactForm) {
-    var nameField = document.getElementById('contact-name');
-    var emailField = document.getElementById('contact-email');
-    var phoneField = document.getElementById('contact-phone');
-    var messageField = document.getElementById('contact-message');
-
-    var formNote = document.createElement('p');
-    formNote.className = 'form-note';
-    formNote.id = 'contact-form-note';
-    contactForm.appendChild(formNote);
-
-    function setError(field, message) {
-      field.classList.toggle('is-invalid', Boolean(message));
-      var errorId = field.id + '-error';
-      var errorEl = document.getElementById(errorId);
-      if (!errorEl) {
-        errorEl = document.createElement('span');
-        errorEl.className = 'form-error';
-        errorEl.id = errorId;
-        field.insertAdjacentElement('afterend', errorEl);
-      }
-      errorEl.textContent = message || '';
-    }
-
-    function isValidEmail(value) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    }
-
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var valid = true;
-
-      if (!nameField.value.trim()) {
-        setError(nameField, 'Укажите ваше имя');
-        valid = false;
-      } else {
-        setError(nameField, '');
-      }
-
-      if (!emailField.value.trim() || !isValidEmail(emailField.value.trim())) {
-        setError(emailField, 'Укажите корректный email');
-        valid = false;
-      } else {
-        setError(emailField, '');
-      }
-
-      if (!messageField.value.trim()) {
-        setError(messageField, 'Опишите ваш запрос');
-        valid = false;
-      } else {
-        setError(messageField, '');
-      }
-
-      setError(phoneField, '');
-
-      if (!valid) {
-        formNote.className = 'form-note';
-        formNote.textContent = 'Проверьте, пожалуйста, поля, отмеченные ошибкой.';
-        return;
-      }
-
-      formNote.className = 'form-note is-success';
-      formNote.textContent = 'Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.';
-      contactForm.reset();
-    });
-  }
-
-});
+    <!-- Footer -->
+    <footer id="site-footer" class="site-footer">
+        <div class="footer-container">
+            <nav class="footer-nav" aria-label="Навигация в подвале сайта">
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><a href="#about" class="footer-nav-link">О компании</a></li>
+                    <li class="footer-nav-item"><a href="#services" class="footer-nav-link">Услуги</a></li>
+                    <li class="footer-nav-item"><a href="#product" class="footer-nav-link">Продукт</a></li>
+                    <li class="footer-nav-item"><a href="#contacts" class="footer-nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <address class="footer-contacts">
+                <p class="footer-address">Пермский край г. Пермь ул. Екатерининская, д. 133, кв. 29</p>
+                <p class="footer-phone">Телефон: <a href="tel:+74951234567">+7 (912) 882-41-32</a></p>
+                <p class="footer-email">Email: <a href="mailto:support@ntkorp.ru">support@ntkorp.ru</a></p>
+            </address>
+            <div class="footer-social" id="footer-social">
+                <ul class="social-list">
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-vk">
+                            <img src="" alt="Иконка ВКонтакте">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-telegram">
+                            <img src="" alt="Иконка Telegram">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-linkedin">
+                            <img src="" alt="Иконка LinkedIn">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-youtube">
+                            <img src="" alt="Иконка YouTube">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p class="footer-copyright">&copy; 2026 LIMITED LIABILITY COMPANY "NAVITECH CORP". Все права защищены.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
