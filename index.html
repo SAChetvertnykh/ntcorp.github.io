@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,15 @@
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Переключить на светлую тему" aria-pressed="false">
+                    <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"></path>
+                    </svg>
+                    <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.5"></circle>
+                        <path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"></path>
+                    </svg>
+                </button>
                 <button type="button" class="btn btn-contact" id="header-contact-btn">Связаться</button>
                 <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
                     <span class="nav-toggle-line"></span>
@@ -48,8 +57,9 @@
                 <p class="eyebrow">Разработка ПО для бизнеса</p>
                 <h1 class="hero-title">Разрабатываем программное обеспечение, которое двигает ваш бизнес вперед</h1>
                 <p class="hero-description">LIMITED LIABILITY COMPANY "NAVITECH CORP" — команда инженеров и аналитиков, создающая надежные IT-решения для компаний любого масштаба. Наша флагманская разработка — собственная CRM-система, но мы также занимаемся веб-разработкой, автоматизацией процессов и технической поддержкой бизнеса.</p>
-                <div class="hero-buttons">
-                </div>
+            </div>
+            <div class="hero-image">
+                <img src="" alt="Иллюстрация работы IT-команды над разработкой программного обеспечения">
             </div>
         </div>
     </section>
@@ -96,7 +106,7 @@
                         <img src="" alt="Иконка технической поддержки">
                     </div>
                     <h3 class="service-title">Техническая поддержка</h3>
-                    <p class="service-description">Обеспечиваем стабильную работу ваших систем, благодаря профессиональной технической поддержке.</p>
+                    <p class="service-description">Обеспечиваем стабильную работу ваших систем 24/7 благодаря профессиональной технической поддержке.</p>
                 </article>
             </div>
         </div>
@@ -131,8 +141,8 @@
             <h2 class="section-title">Почему выбирают нас</h2>
             <div class="advantages-list">
                 <article class="advantage-card" id="advantage-support">
-                    <h3 class="advantage-title">Полная поддержка продукта</h3>
-                    <p class="advantage-description">Оперативно реагируем на обращения клиентов.</p>
+                    <h3 class="advantage-title">Поддержка 24/7</h3>
+                    <p class="advantage-description">Оперативно реагируем на обращения клиентов в любое время суток.</p>
                 </article>
                 <article class="advantage-card" id="advantage-individual">
                     <h3 class="advantage-title">Индивидуальный подход</h3>
@@ -199,14 +209,10 @@
                 </div>
                 <div class="form-group">
                     <label for="contact-message" class="form-label">Сообщение</label>
-                    <textarea id="contact-message" name="contact-messag
-
-                  e" class="form-textarea" placeholder="Введите ваше сообщение"></textarea>
+                    <textarea id="contact-message" name="contact-message" class="form-textarea" placeholder="Введите ваше сообщение"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary" id="contact-submit-btn">Отправить</button>
             </form>
-            <div class="contacts-map" id="contacts-map">
-            </div>
         </div>
     </section>
 
