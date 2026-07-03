@@ -33,6 +33,30 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Светлая тема — включается атрибутом data-theme="light" на <html> */
+:root[data-theme="light"] {
+  --color-bg: #EFEFEC;
+  --color-surface: #FFFFFF;
+  --color-ink: #16140F;
+  --color-muted: #63605A;
+  --color-teal: #B85C00;
+  --color-line: rgba(0, 0, 0, 0.10);
+  --shadow-card: 0 1px 2px rgba(20, 16, 10, 0.05), 0 8px 24px rgba(20, 16, 10, 0.08);
+  --shadow-lift: 0 12px 32px rgba(20, 16, 10, 0.16);
+}
+
+body,
+.hero,
+.service-card,
+.advantage-card,
+.partner-logo,
+.contact-form,
+.form-input,
+.form-textarea,
+img {
+  transition: background-color 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+
 /* =========================================================
    Сброс и базовые настройки
    ========================================================= */
@@ -76,6 +100,10 @@ img {
   display: block;
   background: linear-gradient(135deg, #232326, #17171A);
   border-radius: var(--radius-sm);
+}
+
+:root[data-theme="light"] img {
+  background: linear-gradient(135deg, #E6E4E0, #F3F2EF);
 }
 
 ul {
@@ -352,6 +380,42 @@ section {
   flex-shrink: 0;
 }
 
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-line-dark);
+  background: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), background 0.25s var(--ease);
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.theme-icon {
+  width: 19px;
+  height: 19px;
+}
+
+.theme-icon.icon-sun {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-icon.icon-moon {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-icon.icon-sun {
+  display: block;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -393,6 +457,10 @@ section {
   overflow: hidden;
   padding: 84px 0 96px;
   background: linear-gradient(180deg, #1B1310 0%, var(--color-bg) 100%);
+}
+
+:root[data-theme="light"] .hero {
+  background: linear-gradient(180deg, #FBE7D6 0%, var(--color-bg) 100%);
 }
 
 .hero-network {
