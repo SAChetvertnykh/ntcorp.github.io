@@ -222,14 +222,15 @@ section {
 
 .btn-secondary {
   background: transparent;
-  color: var(--color-navy);
-  border-color: var(--color-navy);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .btn-secondary:hover {
-  background: var(--color-navy);
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
   transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 106, 19, 0.35);
 }
 
 .btn-contact {
