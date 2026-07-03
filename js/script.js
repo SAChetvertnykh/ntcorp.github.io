@@ -5,7 +5,8 @@
    3. Состояние шапки при скролле + подсветка активного пункта
    4. Плавное появление блоков при скролле
    5. Canvas-анимация «сети связей» в hero
-   6. Валидация формы обратной связи
+   6. Карусель скриншотов CRM-системы (автоперелистывание)
+   7. Валидация формы обратной связи
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- 4. Плавное появление блоков при скролле ---------- */
   var revealTargets = document.querySelectorAll(
-    '.service-card, .advantage-card, .partner-logo, .about-text, .product-image, .contact-form'
+    '.service-card, .advantage-card, .partner-logo, .about-text, .product-gallery, .contact-form'
   );
 
   revealTargets.forEach(function (el) {
@@ -216,7 +217,63 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  /* ---------- 6. Валидация формы обратной связи ---------- */
+  /* ---------- 6. Карусель скриншотов CRM-системы ---------- */
+  var gallery = document.getElementById('product-gallery');
+  var galleryTrack = document.getElementById('product-gallery-track');
+
+  if (gallery && galleryTrack) {
+    var slides = galleryTrack.querySelectorAll('.product-gallery-slide');
+    var dots = gallery.querySelectorAll('.product-gallery-dot');
+    var currentSlide = 0;
+    var slideInterval = null;
+    var AUTOPLAY_DELAY = 5000;
+
+    function goToSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      galleryTrack.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+      dots.forEach(function (dot, dotIndex) {
+        dot.classList.toggle('is-active', dotIndex === currentSlide);
+      });
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      slideInterval = window.setInterval(function () {
+        goToSlide(currentSlide + 1);
+      }, AUTOPLAY_DELAY);
+    }
+
+    function stopAutoplay() {
+      if (slideInterval) {
+        window.clearInterval(slideInterval);
+        slideInterval = null;
+      }
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var index = parseInt(dot.getAttribute('data-slide-index'), 10) || 0;
+        goToSlide(index);
+        startAutoplay();
+      });
+    });
+
+    gallery.addEventListener('mouseenter', stopAutoplay);
+    gallery.addEventListener('mouseleave', startAutoplay);
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    });
+
+    goToSlide(0);
+    startAutoplay();
+  }
+
+  /* ---------- 7. Валидация формы обратной связи ---------- */
   var contactForm = document.getElementById('contact-form');
 
   if (contactForm) {
