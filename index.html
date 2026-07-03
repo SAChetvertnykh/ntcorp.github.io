@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNova Solutions — Разработка ПО и CRM-систем для бизнеса</title>
-    <meta name="description" content="TechNova Solutions — IT-компания, разработчик собственной CRM-системы, веб-приложений и решений для автоматизации бизнеса.">
+    <title>LIMITED LIABILITY COMPANY "NAVITECH CORP" — Разработка ПО и CRM-систем для бизнеса</title>
+    <meta name="description" content="LIMITED LIABILITY COMPANY &quot;NAVITECH CORP&quot; — IT-компания, разработчик собственной CRM-системы, веб-приложений и решений для автоматизации бизнеса.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -12,8 +16,8 @@
     <header id="site-header" class="site-header">
         <div class="header-container">
             <div class="logo" id="logo">
-                <img src="" alt="Логотип компании TechNova Solutions">
-                <span class="logo-text">TechNova Solutions</span>
+                <img src="" alt="Логотип компании LIMITED LIABILITY COMPANY &quot;NAVITECH CORP&quot;">
+                <span class="logo-text">NAVITECH CORP</span>
             </div>
             <nav id="main-nav" class="main-nav" aria-label="Главное меню">
                 <ul class="nav-list">
@@ -27,16 +31,25 @@
                     <li class="nav-item"><a href="#contacts" class="nav-link">Контакты</a></li>
                 </ul>
             </nav>
-            <button type="button" class="btn btn-contact" id="header-contact-btn">Связаться</button>
+            <div class="header-actions">
+                <button type="button" class="btn btn-contact" id="header-contact-btn">Связаться</button>
+                <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Hero: главный заголовок и описание компании -->
     <section id="hero" class="hero">
+        <canvas id="hero-network" class="hero-network" aria-hidden="true"></canvas>
         <div class="hero-container">
             <div class="hero-content">
+                <p class="eyebrow">Разработка ПО для бизнеса</p>
                 <h1 class="hero-title">Разрабатываем программное обеспечение, которое двигает ваш бизнес вперед</h1>
-                <p class="hero-description">TechNova Solutions — команда инженеров и аналитиков, создающая надежные IT-решения для компаний любого масштаба. Наша флагманская разработка — собственная CRM-система, но мы также занимаемся веб-разработкой, автоматизацией процессов и технической поддержкой бизнеса.</p>
+                <p class="hero-description">LIMITED LIABILITY COMPANY "NAVITECH CORP" — команда инженеров и аналитиков, создающая надежные IT-решения для компаний любого масштаба. Наша флагманская разработка — собственная CRM-система, но мы также занимаемся веб-разработкой, автоматизацией процессов и технической поддержкой бизнеса.</p>
                 <div class="hero-buttons">
                     <button type="button" class="btn btn-primary" id="hero-more-btn">Подробнее</button>
                     <button type="button" class="btn btn-secondary" id="hero-products-btn">Наши продукты</button>
@@ -53,12 +66,8 @@
         <div class="about-container">
             <h2 class="section-title">О компании</h2>
             <div class="about-text">
-                <p class="about-paragraph">TechNova Solutions работает на рынке разработки программного обеспечения уже более десяти лет. За это время мы реализовали десятки проектов для компаний из сферы ритейла, финансов, логистики и производства.</p>
+                <p class="about-paragraph">LIMITED LIABILITY COMPANY "NAVITECH CORP" работает на рынке разработки программного обеспечения уже более 4 лет. За это время мы реализовали десятки проектов для компаний из сферы ритейла, финансов, логистики и производства.</p>
                 <p class="about-paragraph">Наша миссия — помогать бизнесу эффективно управлять внутренними процессами с помощью современных технологий. Мы верим, что качественное программное обеспечение должно быть не только функциональным, но и удобным для конечного пользователя.</p>
-                <p class="about-paragraph">Сегодня в команде TechNova Solutions работают более 80 специалистов: разработчики, аналитики, дизайнеры, тестировщики и менеджеры проектов, объединенные общей целью — создавать продукты, которыми клиенты пользуются с удовольствием.</p>
-            </div>
-            <div class="about-image">
-                <img src="" alt="Фотография команды сотрудников компании TechNova Solutions">
             </div>
         </div>
     </section>
@@ -103,8 +112,8 @@
     <!-- Наш продукт: презентация CRM -->
     <section id="product" class="product">
         <div class="product-container">
-            <h2 class="section-title">Наш продукт — NovaCRM</h2>
-            <p class="product-description">NovaCRM — это собственная разработка компании TechNova Solutions, созданная специально для эффективного управления клиентами, продажами и коммуникациями внутри бизнеса. Система легко адаптируется под задачи компаний любого размера.</p>
+            <h2 class="section-title">Наш продукт — UBS</h2>
+            <p class="product-description">UBS — это собственная разработка компании LIMITED LIABILITY COMPANY "NAVITECH CORP", созданная специально для эффективного управления клиентами, продажами и коммуникациями внутри бизнеса. Система легко адаптируется под задачи компаний любого размера.</p>
             <div class="product-features">
                 <h3 class="features-title">Основные возможности</h3>
                 <ul class="features-list">
@@ -117,7 +126,7 @@
                 </ul>
             </div>
             <div class="product-image">
-                <img src="" alt="Скриншот интерфейса CRM-системы NovaCRM">
+                <img src="" alt="Скриншот интерфейса CRM-системы UBS">
             </div>
             <button type="button" class="btn btn-primary" id="product-more-btn">Подробнее</button>
         </div>
@@ -129,12 +138,8 @@
             <h2 class="section-title">Почему выбирают нас</h2>
             <div class="advantages-list">
                 <article class="advantage-card" id="advantage-experience">
-                    <h3 class="advantage-title">Опыт более 10 лет</h3>
-                    <p class="advantage-description">Реализовали свыше 150 проектов в различных отраслях бизнеса.</p>
-                </article>
-                <article class="advantage-card" id="advantage-team">
-                    <h3 class="advantage-title">Профессиональная команда</h3>
-                    <p class="advantage-description">Более 80 квалифицированных специалистов в штате компании.</p>
+                    <h3 class="advantage-title">Опыт более <span class="stat-number" data-count="4">0</span> лет</h3>
+                    <p class="advantage-description">Реализовали свыше <span class="stat-number" data-count="150">0</span> проектов в различных отраслях бизнеса.</p>
                 </article>
                 <article class="advantage-card" id="advantage-support">
                     <h3 class="advantage-title">Поддержка 24/7</h3>
@@ -219,10 +224,10 @@
             <div class="news-list">
                 <article class="news-card" id="news-1">
                     <div class="news-image">
-                        <img src="" alt="Изображение к новости о выходе новой версии NovaCRM">
+                        <img src="" alt="Изображение к новости о выходе новой версии UBS">
                     </div>
                     <time class="news-date" datetime="2026-06-15">15 июня 2026</time>
-                    <h3 class="news-title">Вышла новая версия NovaCRM 3.0</h3>
+                    <h3 class="news-title">Вышла новая версия UBS 3.0</h3>
                     <p class="news-excerpt">Мы выпустили обновленную версию нашей CRM-системы с улучшенной аналитикой и новым мобильным приложением.</p>
                 </article>
                 <article class="news-card" id="news-2">
@@ -230,7 +235,7 @@
                         <img src="" alt="Изображение к новости об участии в конференции">
                     </div>
                     <time class="news-date" datetime="2026-05-20">20 мая 2026</time>
-                    <h3 class="news-title">TechNova Solutions на конференции IT-Expo</h3>
+                    <h3 class="news-title">LIMITED LIABILITY COMPANY "NAVITECH CORP" на конференции IT-Expo</h3>
                     <p class="news-excerpt">Наша команда представила новые разработки на крупнейшей отраслевой конференции года.</p>
                 </article>
                 <article class="news-card" id="news-3">
@@ -253,7 +258,7 @@
                 <address class="company-address">
                     <p class="address-item">г. Москва, ул. Технологическая, д. 15, офис 401</p>
                     <p class="phone-item">Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
-                    <p class="email-item">Email: <a href="mailto:info@technova-solutions.ru">info@technova-solutions.ru</a></p>
+                    <p class="email-item">Email: <a href="mailto:info@navitech-corp.com">info@navitech-corp.com</a></p>
                 </address>
             </div>
             <form class="contact-form" id="contact-form" action="#" method="post">
@@ -277,7 +282,7 @@
                 <button type="submit" class="btn btn-primary" id="contact-submit-btn">Отправить</button>
             </form>
             <div class="contacts-map" id="contacts-map">
-                <img src="" alt="Карта с расположением офиса компании TechNova Solutions">
+                <img src="" alt="Карта с расположением офиса компании LIMITED LIABILITY COMPANY &quot;NAVITECH CORP&quot;">
             </div>
         </div>
     </section>
@@ -298,7 +303,7 @@
             <address class="footer-contacts">
                 <p class="footer-address">г. Москва, ул. Технологическая, д. 15, офис 401</p>
                 <p class="footer-phone">Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
-                <p class="footer-email">Email: <a href="mailto:info@technova-solutions.ru">info@technova-solutions.ru</a></p>
+                <p class="footer-email">Email: <a href="mailto:info@navitech-corp.com">info@navitech-corp.com</a></p>
             </address>
             <div class="footer-social" id="footer-social">
                 <ul class="social-list">
@@ -324,9 +329,10 @@
                     </li>
                 </ul>
             </div>
-            <p class="footer-copyright">&copy; 2026 TechNova Solutions. Все права защищены.</p>
+            <p class="footer-copyright">&copy; 2026 LIMITED LIABILITY COMPANY "NAVITECH CORP". Все права защищены.</p>
         </div>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>
