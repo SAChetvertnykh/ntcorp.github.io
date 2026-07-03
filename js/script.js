@@ -1,16 +1,33 @@
 /* =========================================================
    NAVITECH CORP — интерактивность сайта
-   1. Мобильное меню
-   2. Состояние шапки при скролле + подсветка активного пункта
-   3. Плавное появление блоков при скролле
-   4. Анимация счётчиков (лет опыта / проектов)
+   1. Переключение темы (светлая / тёмная)
+   2. Мобильное меню
+   3. Состояние шапки при скролле + подсветка активного пункта
+   4. Плавное появление блоков при скролле
    5. Canvas-анимация «сети связей» в hero
    6. Валидация формы обратной связи
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---------- 1. Мобильное меню ---------- */
+  /* ---------- 1. Переключение темы ---------- */
+  var themeToggle = document.getElementById('theme-toggle');
+  var rootEl = document.documentElement;
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var isLight = rootEl.getAttribute('data-theme') === 'light';
+      var nextTheme = isLight ? 'dark' : 'light';
+      rootEl.setAttribute('data-theme', nextTheme);
+      themeToggle.setAttribute('aria-pressed', String(!isLight));
+      themeToggle.setAttribute(
+        'aria-label',
+        nextTheme === 'light' ? 'Переключить на тёмную тему' : 'Переключить на светлую тему'
+      );
+    });
+  }
+
+  /* ---------- 2. Мобильное меню ---------- */
   var navToggle = document.getElementById('nav-toggle');
   var mainNav = document.getElementById('main-nav');
 
@@ -30,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---------- 2. Состояние шапки при скролле + активный пункт меню ---------- */
+  /* ---------- 3. Состояние шапки при скролле + активный пункт меню ---------- */
   var header = document.getElementById('site-header');
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('.nav-link');
@@ -60,9 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---------- 3. Плавное появление блоков при скролле ---------- */
+  /* ---------- 4. Плавное появление блоков при скролле ---------- */
   var revealTargets = document.querySelectorAll(
-    '.service-card, .advantage-card, .case-card, .news-card, .partner-logo, .about-text, .product-image, .contact-form, .contacts-map'
+    '.service-card, .advantage-card, .partner-logo, .about-text, .product-image, .contact-form'
   );
 
   revealTargets.forEach(function (el) {
@@ -88,47 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     revealTargets.forEach(function (el) {
       el.classList.add('is-visible');
-    });
-  }
-
-  /* ---------- 4. Анимация счётчиков ---------- */
-  var statNumbers = document.querySelectorAll('.stat-number[data-count]');
-
-  function animateCount(el) {
-    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
-    var duration = 1200;
-    var start = null;
-
-    function step(timestamp) {
-      if (start === null) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target);
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      } else {
-        el.textContent = target + '+';
-      }
-    }
-    window.requestAnimationFrame(step);
-  }
-
-  if ('IntersectionObserver' in window && statNumbers.length) {
-    var countObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCount(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.6 });
-
-    statNumbers.forEach(function (el) {
-      countObserver.observe(el);
-    });
-  } else {
-    statNumbers.forEach(function (el) {
-      el.textContent = (el.getAttribute('data-count') || '0') + '+';
     });
   }
 
@@ -198,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
           var ddy = na.y - nb.y;
           var d = Math.sqrt(ddx * ddx + ddy * ddy);
           if (d < 140) {
-            ctx.strokeStyle = 'rgba(20, 33, 61,' + (0.12 * (1 - d / 140)) + ')';
+            ctx.strokeStyle = 'rgba(255, 106, 19,' + (0.22 * (1 - d / 140)) + ')';
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(na.x, na.y);
@@ -212,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var node = nodes[j];
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
-        ctx.fillStyle = j % 3 === 0 ? 'rgba(46, 196, 182, 0.55)' : 'rgba(20, 33, 61, 0.4)';
+        ctx.fillStyle = j % 3 === 0 ? 'rgba(255, 174, 66, 0.75)' : 'rgba(255, 106, 19, 0.55)';
         ctx.fill();
       }
 
