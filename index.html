@@ -30,14 +30,17 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Переключить на светлую тему" aria-pressed="false">
-                    <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"></path>
-                    </svg>
-                    <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="4.5"></circle>
-                        <path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"></path>
-                    </svg>
+                <button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="Переключить на светлую тему">
+                    <span class="theme-toggle-track">
+                        <svg class="theme-toggle-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4.2"></circle>
+                            <path d="M12 2.8v2.6M12 18.6v2.6M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2.8 12h2.6M18.6 12h2.6M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"></path>
+                        </svg>
+                        <svg class="theme-toggle-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.4 6.4 0 0 0 10.2 10.2Z"></path>
+                        </svg>
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
                 </button>
                 <button type="button" class="btn btn-contact" id="header-contact-btn">Связаться</button>
                 <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
@@ -58,6 +61,7 @@
                 <h1 class="hero-title">Разрабатываем программное обеспечение, которое двигает ваш бизнес вперед</h1>
                 <p class="hero-description">LIMITED LIABILITY COMPANY "NAVITECH CORP" — команда инженеров и аналитиков, создающая надежные IT-решения для компаний любого масштаба. Наша флагманская разработка — собственная CRM-система, но мы также занимаемся веб-разработкой, автоматизацией процессов и технической поддержкой бизнеса.</p>
             </div>
+        </div>
     </section>
 
     <!-- О компании -->
