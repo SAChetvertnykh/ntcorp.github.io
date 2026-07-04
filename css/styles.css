@@ -613,6 +613,7 @@ section {
 .service-icon img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .service-title {
@@ -715,6 +716,7 @@ section {
   width: 100%;
   border-radius: 0;
   border: none;
+  object-fit: cover;
 }
 
 .product-gallery-dots {
