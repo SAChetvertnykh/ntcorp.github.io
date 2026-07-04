@@ -9,6 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('navitech-theme');
+          if (savedTheme === 'light' || savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        } catch (e) {
+          /* localStorage недоступен (приватный режим и т.п.) — используем тему по умолчанию */
+        }
+      })();
+    </script>
 </head>
 <body>
 
@@ -82,37 +94,36 @@
             <div class="services-list">
                 <article class="service-card" id="service-crm">
                     <div class="service-icon">
-                        <img src="https://github.com/user-attachments/assets/b52ca0bf-5243-4814-8357-13dde1f3e398" alt="Иконка разработки CRM-систем">
+                        <img src="" alt="Иконка разработки CRM-систем">
                     </div>
                     <h3 class="service-title">Разработка CRM</h3>
                     <p class="service-description">Создаем индивидуальные CRM-решения для управления клиентами, продажами и внутренними бизнес-процессами компании.</p>
                 </article>
                 <article class="service-card" id="service-web">
                     <div class="service-icon">
-                        <img src="https://github.com/user-attachments/assets/61ba8402-c84f-4c78-b299-0552793b8629" alt="Иконка веб-разработки">
+                        <img src="" alt="Иконка веб-разработки">
                     </div>
                     <h3 class="service-title">Веб-разработка</h3>
                     <p class="service-description">Разрабатываем сайты, веб-приложения и порталы любой сложности с современным дизайном и надежной архитектурой.</p>
                 </article>
                 <article class="service-card" id="service-automation">
                     <div class="service-icon">
-                        <img src="https://github.com/user-attachments/assets/0573933a-d644-4e11-b8b2-4e0be0075cd6" alt="Иконка автоматизации бизнес-процессов">
+                        <img src="" alt="Иконка автоматизации бизнес-процессов">
                     </div>
                     <h3 class="service-title">Автоматизация бизнеса</h3>
                     <p class="service-description">Внедряем инструменты автоматизации, которые сокращают ручной труд и повышают эффективность работы компании.</p>
                 </article>
                 <article class="service-card" id="service-support">
                     <div class="service-icon">
-                        <img src="https://github.com/user-attachments/assets/21f41758-42eb-4244-b95e-cbd0e94f22fe" alt="Иконка технической поддержки">
+                        <img src="" alt="Иконка технической поддержки">
                     </div>
                     <h3 class="service-title">Техническая поддержка</h3>
-                    <p class="service-description">Обеспечиваем стабильную работу ваших систем, благодаря профессиональной технической поддержке.</p>
+                    <p class="service-description">Обеспечиваем стабильную работу ваших систем 24/7 благодаря профессиональной технической поддержке.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    
     <!-- Наш продукт: презентация CRM -->
     <section id="product" class="product">
         <div class="product-container">
@@ -126,25 +137,25 @@
                     <li class="feature-item">Аналитика и отчеты в реальном времени</li>
                     <li class="feature-item">Интеграция с почтой, телефонией и мессенджерами</li>
                     <li class="feature-item">Гибкая настройка ролей и прав доступа</li>
-                    <li class="feature-item">Интергированный AI асистент</li>
+                    <li class="feature-item">Мобильное приложение для работы вне офиса</li>
                 </ul>
             </div>
             <div class="product-gallery" id="product-gallery">
                 <div class="product-gallery-track" id="product-gallery-track">
                     <figure class="product-gallery-slide">
-                        <img src="https://github.com/user-attachments/assets/4c9d3bad-85fe-47c6-ad81-d9fafc25b949" alt="Скриншот интерфейса CRM-системы UBP">
+                        <img src="" alt="Скриншот интерфейса CRM-системы UBP — дашборд с ключевыми показателями">
                     </figure>
                     <figure class="product-gallery-slide">
-                        <img src="https://github.com/user-attachments/assets/3ea9add4-56b8-4660-a7f4-f923ccb9c306" alt="Скриншот интерфейса CRM-системы UBP">
+                        <img src="" alt="Скриншот интерфейса CRM-системы UBP — воронка продаж">
                     </figure>
                     <figure class="product-gallery-slide">
-                        <img src="https://github.com/user-attachments/assets/1bc7f8e5-f9f0-435b-a136-e33b463d0f33" alt="Скриншот интерфейса CRM-системы UBP">
+                        <img src="" alt="Скриншот интерфейса CRM-системы UBP — карточка клиента">
                     </figure>
                     <figure class="product-gallery-slide">
-                        <img src="https://github.com/user-attachments/assets/9891efea-c56e-40a5-b82f-c09bde3baf9b" alt="Скриншот интерфейса CRM-системы UBP">
+                        <img src="" alt="Скриншот интерфейса CRM-системы UBP — аналитика и отчеты">
                     </figure>
                     <figure class="product-gallery-slide">
-                        <img src="https://github.com/user-attachments/assets/ce849bd7-acac-4852-ba91-3a5abe80cc44" alt="Скриншот интерфейса CRM-системы UBP">
+                        <img src="" alt="Скриншот интерфейса CRM-системы UBP — мобильное приложение">
                     </figure>
                 </div>
                 <div class="product-gallery-dots" id="product-gallery-dots">
@@ -165,8 +176,8 @@
             <h2 class="section-title">Почему выбирают нас</h2>
             <div class="advantages-list">
                 <article class="advantage-card" id="advantage-support">
-                    <h3 class="advantage-title">Полная поддержка продукта</h3>
-                    <p class="advantage-description">Оперативно реагируем на обращения клиентов.</p>
+                    <h3 class="advantage-title">Поддержка 24/7</h3>
+                    <p class="advantage-description">Оперативно реагируем на обращения клиентов в любое время суток.</p>
                 </article>
                 <article class="advantage-card" id="advantage-individual">
                     <h3 class="advantage-title">Индивидуальный подход</h3>
@@ -184,7 +195,6 @@
         </div>
     </section>
 
-    
     <!-- Партнеры -->
     <section id="partners" class="partners">
         <div class="partners-container">
@@ -214,7 +224,7 @@
             <div class="contacts-info">
                 <address class="company-address">
                 <p class="footer-address">Пермский край г. Пермь ул. Екатерининская, д. 133, кв. 29</p>
-                <p class="footer-phone">Телефон: <a href="tel:+79128824132">+7 (912) 882-41-32</a></p>
+                <p class="footer-phone">Телефон: <a href="tel:+74951234567">+7 (912) 882-41-32</a></p>
                 <p class="footer-email">Email: <a href="mailto:support@ntkorp.ru">support@ntkorp.ru</a></p>
                 </address>
             </div>
@@ -241,7 +251,6 @@
         </div>
     </section>
 
-    
     <!-- Footer -->
     <footer id="site-footer" class="site-footer">
         <div class="footer-container">
@@ -255,13 +264,29 @@
             </nav>
             <address class="footer-contacts">
                 <p class="footer-address">Пермский край г. Пермь ул. Екатерининская, д. 133, кв. 29</p>
-                <p class="footer-phone">Телефон: <a href="tel:+79128824132">+7 (912) 882-41-32</a></p>
+                <p class="footer-phone">Телефон: <a href="tel:+74951234567">+7 (912) 882-41-32</a></p>
                 <p class="footer-email">Email: <a href="mailto:support@ntkorp.ru">support@ntkorp.ru</a></p>
             </address>
             <div class="footer-social" id="footer-social">
                 <ul class="social-list">
                     <li class="social-item">
                         <a href="#" class="social-link" id="social-vk">
+                            <img src="" alt="Иконка ВКонтакте">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-telegram">
+                            <img src="" alt="Иконка Telegram">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-linkedin">
+                            <img src="" alt="Иконка LinkedIn">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-youtube">
+                            <img src="" alt="Иконка YouTube">
                         </a>
                     </li>
                 </ul>
