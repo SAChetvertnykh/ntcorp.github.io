@@ -14,17 +14,35 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---------- 1. Переключение темы ---------- */
   var themeToggle = document.getElementById('theme-toggle');
   var rootEl = document.documentElement;
+  var THEME_KEY = 'navitech-theme';
+
+  function saveTheme(theme) {
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {
+      /* localStorage недоступен — тема просто не сохранится между визитами */
+    }
+  }
+
+  function syncThemeToggleState() {
+    if (!themeToggle) return;
+    var isLight = rootEl.getAttribute('data-theme') === 'light';
+    themeToggle.setAttribute('aria-checked', String(isLight));
+    themeToggle.setAttribute(
+      'aria-label',
+      isLight ? 'Переключить на тёмную тему' : 'Переключить на светлую тему'
+    );
+  }
+
+  syncThemeToggleState();
 
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {
       var isLight = rootEl.getAttribute('data-theme') === 'light';
       var nextTheme = isLight ? 'dark' : 'light';
       rootEl.setAttribute('data-theme', nextTheme);
-      themeToggle.setAttribute('aria-checked', String(nextTheme === 'light'));
-      themeToggle.setAttribute(
-        'aria-label',
-        nextTheme === 'light' ? 'Переключить на тёмную тему' : 'Переключить на светлую тему'
-      );
+      saveTheme(nextTheme);
+      syncThemeToggleState();
     });
   }
 
@@ -281,6 +299,47 @@ document.addEventListener('DOMContentLoaded', function () {
     var emailField = document.getElementById('contact-email');
     var phoneField = document.getElementById('contact-phone');
     var messageField = document.getElementById('contact-message');
+    var DRAFT_KEY = 'navitech-contact-draft';
+
+    function saveDraft() {
+      try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify({
+          name: nameField.value,
+          email: emailField.value,
+          phone: phoneField.value,
+          message: messageField.value
+        }));
+      } catch (e) {
+        /* localStorage недоступен — черновик просто не сохранится */
+      }
+    }
+
+    function restoreDraft() {
+      try {
+        var raw = localStorage.getItem(DRAFT_KEY);
+        if (!raw) return;
+        var draft = JSON.parse(raw);
+        nameField.value = draft.name || '';
+        emailField.value = draft.email || '';
+        phoneField.value = draft.phone || '';
+        messageField.value = draft.message || '';
+      } catch (e) {
+        /* повреждённый или недоступный черновик — просто игнорируем */
+      }
+    }
+
+    function clearDraft() {
+      try {
+        localStorage.removeItem(DRAFT_KEY);
+      } catch (e) {
+        /* localStorage недоступен — нечего очищать */
+      }
+    }
+
+    restoreDraft();
+    [nameField, emailField, phoneField, messageField].forEach(function (field) {
+      field.addEventListener('input', saveDraft);
+    });
 
     var formNote = document.createElement('p');
     formNote.className = 'form-note';
@@ -340,6 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
       formNote.className = 'form-note is-success';
       formNote.textContent = 'Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.';
       contactForm.reset();
+      clearDraft();
     });
   }
 
