@@ -276,6 +276,23 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
+    var prevEdge = document.getElementById('product-gallery-prev');
+    var nextEdge = document.getElementById('product-gallery-next');
+
+    if (prevEdge) {
+      prevEdge.addEventListener('click', function () {
+        goToSlide(currentSlide - 1);
+        startAutoplay();
+      });
+    }
+
+    if (nextEdge) {
+      nextEdge.addEventListener('click', function () {
+        goToSlide(currentSlide + 1);
+        startAutoplay();
+      });
+    }
+
     gallery.addEventListener('mouseenter', stopAutoplay);
     gallery.addEventListener('mouseleave', startAutoplay);
 
