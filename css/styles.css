@@ -160,6 +160,20 @@ button {
   display: inline-block;
 }
 
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 18px;
+  transition: color 0.2s var(--ease);
+}
+
+.back-link:hover {
+  color: var(--color-accent);
+}
+
 /* =========================================================
    Общие контейнеры и заголовки секций
    ========================================================= */
@@ -364,12 +378,14 @@ section {
 }
 
 .nav-link:hover,
-.nav-link.is-active {
+.nav-link.is-active,
+.nav-link.is-current {
   color: #fff;
 }
 
 .nav-link:hover::after,
-.nav-link.is-active::after {
+.nav-link.is-active::after,
+.nav-link.is-current::after {
   width: 100%;
 }
 
