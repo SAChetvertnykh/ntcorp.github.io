@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBP — CRM-система от LIMITED LIABILITY COMPANY "NAVITECH CORP"</title>
+    <meta name="description" content="UBP — собственная CRM-система LIMITED LIABILITY COMPANY &quot;NAVITECH CORP&quot;: описание, основные функции и преимущества перед другими CRM-системами.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('navitech-theme');
+          if (savedTheme === 'light' || savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        } catch (e) {
+          /* localStorage недоступен (приватный режим и т.п.) — используем тему по умолчанию */
+        }
+      })();
+    </script>
+</head>
+<body>
+
+    <!-- Header: логотип, главное меню, кнопка связи (идентичен главной странице) -->
+    <header id="site-header" class="site-header">
+        <div class="header-container">
+            <div class="logo" id="logo">
+                <img src="" alt="Логотип компании LIMITED LIABILITY COMPANY &quot;NAVITECH CORP&quot;">
+                <span class="logo-text">NAVITECH CORP</span>
+            </div>
+            <nav id="main-nav" class="main-nav" aria-label="Главное меню">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">О компании</a></li>
+                    <li class="nav-item"><a href="index.html#services" class="nav-link">Услуги</a></li>
+                    <li class="nav-item"><a href="product.html" class="nav-link is-current">Продукт</a></li>
+                    <li class="nav-item"><a href="index.html#why-us" class="nav-link">Почему мы</a></li>
+                    <li class="nav-item"><a href="index.html#partners" class="nav-link">Партнеры</a></li>
+                    <li class="nav-item"><a href="index.html#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="Переключить на светлую тему">
+                    <span class="theme-toggle-track">
+                        <svg class="theme-toggle-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4.2"></circle>
+                            <path d="M12 2.8v2.6M12 18.6v2.6M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2.8 12h2.6M18.6 12h2.6M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"></path>
+                        </svg>
+                        <svg class="theme-toggle-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.4 6.4 0 0 0 10.2 10.2Z"></path>
+                        </svg>
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                </button>
+                <a href="index.html#contacts" class="btn btn-contact" id="header-contact-btn">Связаться</a>
+                <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero: заголовок страницы продукта -->
+    <section id="hero" class="hero">
+        <canvas id="hero-network" class="hero-network" aria-hidden="true"></canvas>
+        <div class="hero-container">
+            <div class="hero-content">
+                <a href="index.html" class="back-link">← На главную</a>
+                <p class="eyebrow">CRM-система для бизнеса</p>
+                <h1 class="hero-title">UBP — единая система для клиентов, продаж и коммуникаций</h1>
+                <p class="hero-description">UBP — собственная разработка LIMITED LIABILITY COMPANY "NAVITECH CORP". Мы создали её, чтобы компании могли управлять клиентской базой, продажами и внутренними процессами в одном месте — без лишних интеграций и ручной рутины.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Описание -->
+    <section id="description" class="about">
+        <div class="about-container">
+            <h2 class="section-title">Описание</h2>
+            <div class="about-text">
+                <p class="about-paragraph">UBP — облачная CRM-система, разработанная для компаний, которым важно видеть полную картину по клиентам, сделкам и команде в одном интерфейсе. Система подходит как небольшим отделам продаж, так и крупным компаниям с несколькими подразделениями.</p>
+                <p class="about-paragraph">В основе UBP — гибкая архитектура: систему можно настроить под конкретные бизнес-процессы компании без привлечения программистов, а при необходимости — расширить с помощью интеграций и API.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основные функции -->
+    <section id="product-features-section" class="services">
+        <div class="services-container">
+            <h2 class="section-title">Основные функции</h2>
+            <div class="services-list">
+                <article class="service-card">
+                    <h3 class="service-title">Клиентская база</h3>
+                    <p class="service-description">Единая карточка клиента со всей историей обращений, сделок и переписки — ничего не теряется между сотрудниками.</p>
+                </article>
+                <article class="service-card">
+                    <h3 class="service-title">Воронка продаж</h3>
+                    <p class="service-description">Наглядная канбан-доска сделок с автоматическими напоминаниями и переходами между этапами.</p>
+                </article>
+                <article class="service-card">
+                    <h3 class="service-title">Аналитика и отчёты</h3>
+                    <p class="service-description">Отчёты по продажам, конверсии и загрузке менеджеров формируются автоматически в реальном времени.</p>
+                </article>
+                <article class="service-card">
+                    <h3 class="service-title">Интеграции</h3>
+                    <p class="service-description">Подключение почты, телефонии и мессенджеров — все обращения клиентов попадают в одну систему.</p>
+                </article>
+                <article class="service-card">
+                    <h3 class="service-title">Роли и доступы</h3>
+                    <p class="service-description">Гибкая настройка прав — каждый сотрудник видит только то, что нужно для его задач.</p>
+                </article>
+                <article class="service-card">
+                    <h3 class="service-title">Мобильное приложение</h3>
+                    <p class="service-description">Доступ к клиентам и сделкам с телефона — менеджеры остаются на связи вне офиса.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества по сравнению с другими CRM-системами -->
+    <section id="comparison" class="why-us">
+        <div class="why-us-container">
+            <h2 class="section-title">Преимущества перед другими CRM-системами</h2>
+            <div class="advantages-list">
+                <article class="advantage-card">
+                    <h3 class="advantage-title">Настройка без разработчиков</h3>
+                    <p class="advantage-description">В отличие от многих коробочных CRM, поля, статусы и процессы в UBP меняются самостоятельно, без привлечения IT-специалистов.</p>
+                </article>
+                <article class="advantage-card">
+                    <h3 class="advantage-title">Быстрое внедрение</h3>
+                    <p class="advantage-description">Типовая настройка и перенос данных занимают дни, а не месяцы, как это часто бывает при переходе на тяжёлые CRM-платформы.</p>
+                </article>
+                <article class="advantage-card">
+                    <h3 class="advantage-title">Прозрачная стоимость</h3>
+                    <p class="advantage-description">Понятная модель лицензирования без скрытых платежей за модули, которые в других системах часто продаются отдельно.</p>
+                </article>
+                <article class="advantage-card">
+                    <h3 class="advantage-title">Поддержка от разработчика</h3>
+                    <p class="advantage-description">UBP разрабатывается и сопровождается той же командой, что и внедряет систему — без посредников и партнёрских цепочек.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Стать партнером (в будущем раздел будет вести на отдельную страницу) -->
+    <section id="become-partner" class="partners">
+        <div class="partners-container">
+            <h2 class="section-title">Станьте партнёром UBP</h2>
+            <p class="partners-description">Внедряете CRM-системы для бизнеса или ищете новый продукт для своего портфеля? Присоединяйтесь к партнёрской программе UBP и предлагайте своим клиентам готовое решение с поддержкой разработчика.</p>
+            <button type="button" class="btn btn-secondary" id="product-partner-btn">Стать партнером</button>
+        </div>
+    </section>
+
+    <!-- Footer (идентичен главной странице) -->
+    <footer id="site-footer" class="site-footer">
+        <div class="footer-container">
+            <nav class="footer-nav" aria-label="Навигация в подвале сайта">
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><a href="index.html#about" class="footer-nav-link">О компании</a></li>
+                    <li class="footer-nav-item"><a href="index.html#services" class="footer-nav-link">Услуги</a></li>
+                    <li class="footer-nav-item"><a href="product.html" class="footer-nav-link">Продукт</a></li>
+                    <li class="footer-nav-item"><a href="index.html#contacts" class="footer-nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <address class="footer-contacts">
+                <p class="footer-address">Пермский край г. Пермь ул. Екатерининская, д. 133, кв. 29</p>
+                <p class="footer-phone">Телефон: <a href="tel:+74951234567">+7 (912) 882-41-32</a></p>
+                <p class="footer-email">Email: <a href="mailto:support@ntkorp.ru">support@ntkorp.ru</a></p>
+            </address>
+            <div class="footer-social" id="footer-social">
+                <ul class="social-list">
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-vk">
+                            <img src="" alt="Иконка ВКонтакте">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-telegram">
+                            <img src="" alt="Иконка Telegram">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-linkedin">
+                            <img src="" alt="Иконка LinkedIn">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" id="social-youtube">
+                            <img src="" alt="Иконка YouTube">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p class="footer-copyright">&copy; 2026 LIMITED LIABILITY COMPANY "NAVITECH CORP". Все права защищены.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
