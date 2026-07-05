@@ -721,6 +721,25 @@ section {
   background: #000000;
 }
 
+.product-gallery-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18%;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.product-gallery-edge--prev {
+  left: 0;
+}
+
+.product-gallery-edge--next {
+  right: 0;
+}
+
 .product-gallery-dots {
   position: absolute;
   left: 50%;
